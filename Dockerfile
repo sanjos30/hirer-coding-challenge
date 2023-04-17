@@ -12,4 +12,5 @@ WORKDIR /app/
 # pip upgrade and dependencies installation
 RUN pip install -r config/requirements.txt
 
-CMD ["ls"]
+# execute the main job
+CMD python3 -m src.hirer_coding_challenge.main_executor
