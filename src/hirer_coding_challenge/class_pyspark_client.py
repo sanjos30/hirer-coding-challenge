@@ -15,7 +15,6 @@ class SparkClient:
             # read config file entries
             master = kwargs.get('spark_conf', {}).get('master', 'local[*]')
             app_name = kwargs.get('spark_conf', {}).get('appname', 'local[*]')
-
             spark_builder = SparkSession.builder.appName(app_name).master(master)
             return spark_builder.getOrCreate()
         except Exception as e:

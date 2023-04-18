@@ -9,7 +9,7 @@ import json
 
 @dataclass
 class User:
-    """ Represents the seek user
+    """ Represents a seek user
     """
 
     first_name: str
@@ -78,7 +78,5 @@ class User:
     def get_highest_paying_job(self) -> Optional[UserJob]:
         if not self.job_history:
             return None
-        
         sorted_jobs = sorted(self.job_history, key=lambda x: x.salary, reverse=True)
-
         return sorted_jobs[0]

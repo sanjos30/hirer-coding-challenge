@@ -22,9 +22,9 @@ COPY . /app/
 WORKDIR /app/
 
 # Download the S3 file using wget and extract it using the password
-#RUN wget --progress=dot:giga $S3_URL -O $LOCAL_FILE \
-#    && unzip -o -P "By9FNTZXp4j4izuufAs=" $LOCAL_FILE -d /app/src/data/ \
-#    && rm $LOCAL_FILE
+RUN wget --progress=dot:giga $S3_URL -O $LOCAL_FILE \
+    && unzip -o -P "By9FNTZXp4j4izuufAs=" $LOCAL_FILE -d /app/src/data/ \
+    && rm $LOCAL_FILE
 
 # pip upgrade and dependencies installation
 RUN pip install -r config/requirements.txt

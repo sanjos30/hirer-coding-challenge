@@ -20,11 +20,5 @@ def execute_main():
     questions = Questions("seek-assessment", spark_session=spark_session, data_file_path = DATA_FILE_FOLDER_PATH)
     questions.get_all_answers(spark_session=spark_session)
 
-#    for i in dir(a):
-#        if i.startswith("get"):
-#            item = getattr(a,i)
-#            if callable(item):
-#                item()
-
 if __name__ == '__main__':
     execute_main()

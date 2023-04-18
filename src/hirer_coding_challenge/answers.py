@@ -10,12 +10,17 @@ import os
 term_size = os.get_terminal_size()
 
 class Questions:
-
+    """ This class abstracts all the question answers.
+        get_all_answers() is invoked to print all the answers in sequence 1 - 12
+    """
+    
     def __init__(self, name, spark_session, data_file_path):
         self.name = name
         self.spark_session = spark_session
         self.dataframe = spark_session.read.json(data_file_path)
 
+
+    # Q1 Please load the dataset into a Spark dataframe.
     def get_answer_1(self, spark_session:SparkSession):
         print(QUESTION_1_RAW_TEXT)
         print()
@@ -24,6 +29,7 @@ class Questions:
         print('=' * term_size.columns)
 
 
+    # Q2 Print the schema.
     def get_answer_2(self):
         print(QUESTION_2_RAW_TEXT)
         print()
@@ -33,6 +39,7 @@ class Questions:
         print('=' * term_size.columns)
 
 
+    # Q3 How many records are there in the dataset?
     def get_answer_3(self):
         print(QUESTION_3_RAW_TEXT)
         print()
@@ -42,6 +49,7 @@ class Questions:
         print('=' * term_size.columns)
 
 
+    # Q4 What is the average salary for each profile? Display the first 10 results, ordered by lastName in descending order.
     def get_answer_4(self):
         print(QUESTION_4_RAW_TEXT)
         # use user-defined function (udf) to calculate the avg salary
@@ -53,6 +61,7 @@ class Questions:
         print()
         print('=' * term_size.columns)
 
+    # Q5 What is the average salary across the whole dataset?
     def get_answer_5(self):
         print(QUESTION_5_RAW_TEXT)
         #create a dataframe for user jobs
@@ -68,6 +77,7 @@ class Questions:
         print('=' * term_size.columns)
 
 
+    # Q6 On average, what are the top 5 paying jobs? Bottom 5 paying jobs? If there is a tie, please order by title, location.
     def get_answer_6(self):
         print(QUESTION_6_RAW_TEXT)
 
@@ -86,6 +96,7 @@ class Questions:
         print('=' * term_size.columns)
 
 
+    # Q7 Who is currently making the most money? If there is a tie, please order in lastName descending, fromDate descending.
     def get_answer_7(self):
         print(QUESTION_7_RAW_TEXT)
 
@@ -109,6 +120,7 @@ class Questions:
         print()
         print('=' * term_size.columns)       
 
+    # Q8 What was the most popular job title that started in 2019?"
     def get_answer_8(self):
         print(QUESTION_8_RAW_TEXT)
 
@@ -123,7 +135,7 @@ class Questions:
         print('=' * term_size.columns)
 
 
-
+    # Q9 How many people are currently working?
     def get_answer_9(self):
         print(QUESTION_9_RAW_TEXT)  
         udf_is_currently_working = func.udf(
@@ -139,6 +151,7 @@ class Questions:
         print('=' * term_size.columns)    
 
 
+   # Q10 For each person, list only their latest job. Display the first 10 results, ordered by lastName descending, firstName ascending order
     def get_answer_10(self):
         print(QUESTION_10_RAW_TEXT)
         udf_get_current_job = func.udf(lambda u: User(u).get_current_job(), JOB_PYSPARK_STRUCT)
@@ -158,6 +171,7 @@ class Questions:
         print()
         print('=' * term_size.columns)  
 
+   # Q11 For each person, list their highest paying job along with their first name, last name, salary and the year they made this salary. Store theresults in a dataframe, and then print out 10 results
     def get_answer_11(self):
         print(QUESTION_11_RAW_TEXT)
 
@@ -167,6 +181,7 @@ class Questions:
         print('=' * term_size.columns)  
    
 
+    # Q12 Write out the last result (question 11) in parquet format, compressed, partitioned by the year of their highest paying job.
     def get_answer_12(self):
         print(QUESTION_12_RAW_TEXT)
 
@@ -175,8 +190,10 @@ class Questions:
         print()
         print('=' * term_size.columns)  
 
+    
     def get_all_answers(self, spark_session:SparkSession):
-
+        """ This method prints answers to all the questions in sequence
+        """
         self.get_answer_1(spark_session)
 
         self.get_answer_2()
@@ -197,8 +214,10 @@ class Questions:
 
         self.get_answer_10()
 
+        # Not completed
         self.get_answer_11()
 
+        # Not completed
         self.get_answer_12()
 
 
