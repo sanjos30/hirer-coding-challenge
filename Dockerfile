@@ -33,5 +33,3 @@ RUN chmod +x entryPoint.sh
 
 # Set the entrypoint to the script with CMD arguments
 ENTRYPOINT ["./entryPoint.sh"]
-
-#CMD ["hulk", "batman", "superman"]
