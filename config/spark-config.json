@@ -1,0 +1,9 @@
+{
+    "spark_conf": {
+        "master": "local[2]",
+        "appname": "seek-coding-interview"
+    },
+    "log" : {
+        "level": "INFO"
+    }
+}
