@@ -37,8 +37,3 @@ Possible improvements
  1. Load s3 data directly into spark
  2. Complete question 11 and 12
  3. Spark resource optimizations
-
-
-## Delete a file
-
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
