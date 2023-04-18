@@ -3,7 +3,7 @@
 from .helper import read_spark_config_file
 from .constants import SPARK_CONFIG_PATH, DATA_FILE_FOLDER_PATH
 from .class_pyspark_client import SparkClient
-from .answers import answers as a
+from .answers import Questions
 
 def execute_main():
     """ purpose of this function is to answer all the 12 questions for the technical coding challenge.
@@ -15,18 +15,16 @@ def execute_main():
 
     # create the spark session from the config file
     spark_conf = read_spark_config_file(SPARK_CONFIG_PATH)
-    spark = SparkClient(config={}).create_spark_session(spark_conf)
+    spark_session = SparkClient(config={}).create_spark_session(spark_conf)
 
-    dataframe = spark.read.json(DATA_FILE_FOLDER_PATH)
-    print(dataframe.printSchema())
+    questions = Questions("seek-assessment", spark_session=spark_session, data_file_path = DATA_FILE_FOLDER_PATH)
+    questions.get_all_answers(spark_session=spark_session)
 
-    print("Data read OK")
-
-    
-    for i in dir(a):
-        item = getattr(a,i)
-        if callable(item):
-            item()
+#    for i in dir(a):
+#        if i.startswith("get"):
+#            item = getattr(a,i)
+#            if callable(item):
+#                item()
 
 if __name__ == '__main__':
     execute_main()
