@@ -12,15 +12,15 @@ The requirements are included in an offline problem statement and requires answe
 # Setup Instructions
 
  1.  Clone the project to a local workspace directory
-	  >git clone https://github.com/sanjos30/hirer-coding-challenge.git`
+	  >git clone https://github.com/sanjos30/hirer-coding-challenge.git
  2.  cd to the working directory
-	  >cd hirer-coding-challenge`
+	  >cd hirer-coding-challenge
  3.  docker build - *this step also downloads the required test data from s3.  As a result, the build might take up-to 2-3 minutes*
-	  >docker build . -t hirer-coding-challenge`
+	  >docker build . -t hirer-coding-challenge
  4. docker run
-	  >docker run -it hirer-coding-challenge`
+	  >docker run -it hirer-coding-challenge
  5. Alternatively, run docker build & run in one command
-	 >docker build . -t hirer-coding-challenge && docker run -it hirer-coding-challenge`
+	 >docker build . -t hirer-coding-challenge && docker run -it hirer-coding-challenge
 
 > **Note:** Docker build step requires downloading a password protected test-data file from a public AWS S3 bucket. This step has been configured during docker build phase. 
 
