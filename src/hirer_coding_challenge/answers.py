@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from hirer_coding_challenge.class_user_job import UserJob
+from .helper import JOB_PYSPARK_STRUCT
 from .constants import *
 from pyspark.sql import SparkSession, DataFrame
 from pyspark.sql import functions as func
@@ -141,7 +141,7 @@ class Questions:
 
     def get_answer_10(self):
         print(QUESTION_10_RAW_TEXT)
-        udf_get_current_job = func.udf(lambda u: User(u).get_current_job(), UserJob)
+        udf_get_current_job = func.udf(lambda u: User(u).get_current_job(), JOB_PYSPARK_STRUCT)
         current_jobs_df = self.dataframe.select(
             "profile.firstName",
             "profile.lastName",
@@ -160,11 +160,18 @@ class Questions:
 
     def get_answer_11(self):
         print(QUESTION_11_RAW_TEXT)
+
+        print("...........NOT COMPLETED.......")
+
         print()
         print('=' * term_size.columns)  
+   
 
     def get_answer_12(self):
         print(QUESTION_12_RAW_TEXT)
+
+        print("...........NOT COMPLETED.......")
+
         print()
         print('=' * term_size.columns)  
 
@@ -193,3 +200,6 @@ class Questions:
         self.get_answer_11()
 
         self.get_answer_12()
+
+
+        

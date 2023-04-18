@@ -1,2 +1,13 @@
 # hirer-coding-challenge
- Solution to the technical coding challenge for the position of data engineering. 
+
+This repo contains the code submitted for an online coding assessment for a leading Australian tech company.
+
+ ### Pre-reqs:
+
+
+
+
+### Installation:
+
+To run this program,
+

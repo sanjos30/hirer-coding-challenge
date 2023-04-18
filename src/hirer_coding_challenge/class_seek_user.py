@@ -74,4 +74,11 @@ class User:
     
     def is_currently_working(self) -> Optional[bool]:
         return bool(self.get_current_job())    
+
+    def get_highest_paying_job(self) -> Optional[UserJob]:
+        if not self.job_history:
+            return None
         
+        sorted_jobs = sorted(self.job_history, key=lambda x: x.salary, reverse=True)
+
+        return sorted_jobs[0]
