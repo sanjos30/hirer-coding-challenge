@@ -1,8 +1,8 @@
 import pytest
 from datetime import date
 
-from hirer_coding_challenge.class_seek_user import User
-from hirer_coding_challenge.class_user_job import UserJob
+from src.hirer_coding_challenge.class_seek_user import User
+from src.hirer_coding_challenge.class_user_job import UserJob
 
 @pytest.fixture
 def user():

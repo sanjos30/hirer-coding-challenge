@@ -1,5 +1,5 @@
 import os
-from hirer_coding_challenge import read_spark_config_file
+from src.hirer_coding_challenge.helper import read_spark_config_file
 
 filepath = "config/spark_config.json"
 
